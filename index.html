@@ -403,20 +403,35 @@ if (SHEET_API) {
 })();
 
 const COVER_ART = `
-<svg viewBox="0 0 240 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="none" stroke="#000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-  <!-- livro aberto -->
-  <path d="M120 70 Q80 52 26 60 V214 Q80 206 120 224 Q160 206 214 214 V60 Q160 52 120 70 Z" fill="#DCCBB2"/>
-  <line x1="120" y1="70" x2="120" y2="224"/>
-  <path d="M38 72 Q80 66 110 80 M38 196 Q80 190 110 206 M202 72 Q160 66 130 80 M202 196 Q160 190 130 206" stroke-width="1"/>
-  <line x1="18" y1="240" x2="222" y2="240" stroke-width="3"/>
-  <!-- título -->
-  <text x="72" y="122" text-anchor="middle" font-family="EB Garamond, Georgia, serif" font-size="17" fill="#000" stroke="none">Dom</text>
-  <text x="72" y="144" text-anchor="middle" font-family="EB Garamond, Georgia, serif" font-size="17" fill="#000" stroke="none">Casmurro</text>
-  <line x1="48" y1="158" x2="96" y2="158" stroke-width="1"/>
-  <!-- olhos de ressaca -->
-  <path d="M146 118 Q167 102 188 118 Q167 134 146 118 Z" fill="#fff" stroke-width="1.6"/>
-  <circle cx="167" cy="118" r="6" fill="#000" stroke="none"/>
-  <path d="M146 150 q10 -7 21 0 t21 0 M150 164 q9 -6 17 0 t17 0" stroke-width="1.4"/>
+<svg viewBox="140 80 800 620" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:min(21rem,85%)">
+  <!-- olhos de ressaca (arte: dom-casmurro-capa.svg, sem moldura e textos) -->
+
+  <g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round">
+    <!-- olho -->
+    <path d="M250 400 Q540 150 830 400 Q540 610 250 400 Z" fill="#DCCBB2" stroke-width="5"/>
+    <!-- cílios -->
+    <path d="M330 330 l-18 -34 M400 290 l-10 -38 M470 268 l-4 -40 M540 262 v-40 M610 268 l4 -40 M680 290 l10 -38 M750 330 l18 -34" stroke-width="4"/>
+    <!-- sobrancelha -->
+    <path d="M270 250 Q540 90 810 250" stroke-width="3"/>
+    <!-- íris com ondas -->
+    <circle cx="540" cy="400" r="112" fill="#CEBA9F" stroke-width="5"/>
+    <clipPath id="iris"><circle cx="540" cy="400" r="110"/></clipPath>
+    <g clip-path="url(#iris)" stroke-width="3">
+      <path d="M420 350 q20 -16 40 0 t40 0 t40 0 t40 0 t40 0 t40 0"/>
+      <path d="M420 380 q20 -16 40 0 t40 0 t40 0 t40 0 t40 0 t40 0"/>
+      <path d="M420 410 q20 -16 40 0 t40 0 t40 0 t40 0 t40 0 t40 0"/>
+      <path d="M420 440 q20 -16 40 0 t40 0 t40 0 t40 0 t40 0 t40 0"/>
+      <path d="M420 470 q20 -16 40 0 t40 0 t40 0 t40 0 t40 0 t40 0"/>
+    </g>
+    <!-- pupila -->
+    <circle cx="540" cy="400" r="44" fill="#000" stroke="none"/>
+    <circle cx="522" cy="382" r="11" fill="#CEBA9F" stroke="none"/>
+
+    <!-- ressaca: ondas saindo do olho -->
+    <path d="M160 600 q45 -40 90 0 t90 0 t90 0 t90 0 t90 0 t90 0 t90 0 t90 0 t90 0" stroke-width="4"/>
+    <path d="M200 640 q40 -34 80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0" stroke-width="2.5"/>
+    <path d="M250 676 q35 -28 70 0 t70 0 t70 0 t70 0 t70 0 t70 0 t70 0 t70 0" stroke-width="1.5"/>
+  </g>
 </svg>`;
 
 function renderCover() {
@@ -458,7 +473,7 @@ renderCover();
 
 /* ===== Auto-atualização: sempre a última versão no endereço limpo ===== */
 // Troque APP_VERSION a cada publicação: os aparelhos abertos recarregam sozinhos quando estiverem na capa.
-const APP_VERSION = "2026-09-24.1";
+const APP_VERSION = "2026-09-24.2";
 if (location.search) history.replaceState(null, "", location.pathname);  // some com ?v=3 etc.
 async function checkUpdate() {
   try {
